@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor.Experimental.RestService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RaceSelectionManager : MonoBehaviour
 {
@@ -11,10 +12,25 @@ public class RaceSelectionManager : MonoBehaviour
     public TextMeshProUGUI raceDesc;
     private string selectedRace;
 
+    public Button advanceButton;
+    public GameObject humanPanel;
+    public GameObject aldrPanel;
+    public GameObject veldPanel;
+
+    void Start()
+    {
+        advanceButton.interactable = false;
+    }
+
+
     public void SelectRace(string race)
     {
+        Debug.Log("Race button clicked: " + race);
         selectedRace = race;
-        raceDesc.text = GetRaceDescription(race);
+        //raceDesc.text = GetRaceDescription(race);
+
+        PlayerData.selectedRace = selectedRace;
+        advanceButton.interactable = true;
     }
 
     private string GetRaceDescription(string race)
@@ -30,7 +46,13 @@ public class RaceSelectionManager : MonoBehaviour
 
     public void OnAdvanceButton()
     {
-        PlayerData.selectedRace = selectedRace;
         SceneManager.LoadScene("AttributeDistribution");
+    }
+
+    private void ResetRaceSelection()
+    { 
+        humanPanel.SetActive(false);
+        aldrPanel.SetActive(false);
+        veldPanel.SetActive(false);
     }
 }
