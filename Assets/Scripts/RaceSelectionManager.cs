@@ -20,20 +20,37 @@ public class RaceSelectionManager : MonoBehaviour
     void Start()
     {
         advanceButton.interactable = false;
+        ResetRaceSelection();
     }
 
-
-    public void SelectRace(string race)
+    public void SelectRace(string buttonName)
     {
-        Debug.Log("Race button clicked: " + race);
-        selectedRace = race;
-        //raceDesc.text = GetRaceDescription(race);
+        ResetRaceSelection();
 
+        switch (buttonName)
+        {
+            case "Human-Button":
+                selectedRace = "Human";
+                humanPanel.SetActive(true);
+                break;
+            case "Aldr-Button":
+                selectedRace = "Aldr";
+                aldrPanel.SetActive(true);
+                break;
+            case "Veld-Button":
+                selectedRace = "Veld";
+                veldPanel.SetActive(true);
+                break;
+        
+        }
+
+        Debug.Log("Player selected race: " + selectedRace);
         PlayerData.selectedRace = selectedRace;
         advanceButton.interactable = true;
     }
 
-    private string GetRaceDescription(string race)
+
+    public string GetRaceDescription(string race)
     {
         switch (race)
         {

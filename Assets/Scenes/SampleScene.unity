@@ -491,7 +491,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 420727521}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1704695819}
+        m_TargetAssemblyTypeName: RaceSelectionManager, Assembly-CSharp
+        m_MethodName: SelectRace
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Human-Button
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &420727521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1058,7 +1070,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Veld
+          m_StringArgument: Veld-Button
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1070197839
@@ -1658,7 +1670,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1339949510}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1704695819}
+        m_TargetAssemblyTypeName: RaceSelectionManager, Assembly-CSharp
+        m_MethodName: SelectRace
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Aldr-Button
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1339949510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2447,6 +2471,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raceDesc: {fileID: 0}
   advanceButton: {fileID: 2135786802}
+  humanPanel: {fileID: 989240993}
+  aldrPanel: {fileID: 293602359}
+  veldPanel: {fileID: 2020747562}
 --- !u!1 &2020747562
 GameObject:
   m_ObjectHideFlags: 0
