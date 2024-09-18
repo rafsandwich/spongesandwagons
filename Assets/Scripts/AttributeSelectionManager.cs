@@ -25,7 +25,8 @@ public class AttributeSelectionManager : MonoBehaviour
     public GameObject attributeSelectPanel;
     public GameObject confirmationPanel;
 
-    void Update()
+
+    void Start()
     {
         //if (PlayerData.selectedRace == "Human")
         //{
@@ -35,13 +36,11 @@ public class AttributeSelectionManager : MonoBehaviour
         //}
 
         InitialiseRaceBonus();
-        UpdateUI();
+        UpdateAttributeSelectUI();
 
-        Debug.Log(lckBonus);
-        Debug.Log(strBonus);
     }
 
-    private void InitialiseRaceBonus()
+    public void InitialiseRaceBonus()
     { 
         switch (PlayerData.selectedRace)
         {
@@ -75,7 +74,7 @@ public class AttributeSelectionManager : MonoBehaviour
         }
     }
 
-    private void UpdateUI()
+    public void UpdateAttributeSelectUI()
     { 
         strValueTxt.text = (strValue + strBonus).ToString();
         dexValueTxt.text = (dexValue + dexBonus).ToString();
@@ -84,12 +83,22 @@ public class AttributeSelectionManager : MonoBehaviour
         chrValueTxt.text = (chrValue + chrBonus).ToString();
         intValueTxt.text = (intValue + intBonus).ToString();
         lckValueTxt.text = (lckValue + lckBonus).ToString();
+
+        // if bonus is positive display it, if bonus is negative display it, otherwise nothing
+        strBonusTxt.text = strBonus != 0 ? (strBonus > 0 ? "(+" + strBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + strBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
+        dexBonusTxt.text = dexBonus != 0 ? (dexBonus > 0 ? "(+" + dexBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + dexBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
+        faiBonusTxt.text = faiBonus != 0 ? (faiBonus > 0 ? "(+" + faiBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + faiBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
+        endBonusTxt.text = endBonus != 0 ? (endBonus > 0 ? "(+" + endBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + endBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
+        chrBonusTxt.text = chrBonus != 0 ? (chrBonus > 0 ? "(+" + chrBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + chrBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
+        intBonusTxt.text = intBonus != 0 ? (intBonus > 0 ? "(+" + intBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + intBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
+        lckBonusTxt.text = lckBonus != 0 ? (lckBonus > 0 ? "(+" + lckBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + lckBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
     }
 
     public void onRaceSelectButton()
     {
         raceSelectPanel.SetActive(true);
         attributeSelectPanel.SetActive(false);
+
     }
 
 }

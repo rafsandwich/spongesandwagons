@@ -19,10 +19,13 @@ public class RaceSelectionManager : MonoBehaviour
     public GameObject attributeSelectPanel;
     public GameObject raceSelectPanel;
 
+    public AttributeSelectionManager attributeSelectionManager;
+
     void Start()
     {
         advanceButton.interactable = false;
         ResetRaceSelection();
+
     }
 
     public void SelectRace(string buttonName)
@@ -69,6 +72,9 @@ public class RaceSelectionManager : MonoBehaviour
 
         attributeSelectPanel.SetActive(true);
         raceSelectPanel.SetActive(false);
+
+        attributeSelectionManager.InitialiseRaceBonus();
+        attributeSelectionManager.UpdateAttributeSelectUI();
     }
 
     private void ResetRaceSelection()

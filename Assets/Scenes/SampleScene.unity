@@ -9877,6 +9877,7 @@ MonoBehaviour:
   veldPanel: {fileID: 2020747562}
   attributeSelectPanel: {fileID: 569219152}
   raceSelectPanel: {fileID: 1704695815}
+  attributeSelectionManager: {fileID: 569219156}
 --- !u!1 &1747860595
 GameObject:
   m_ObjectHideFlags: 0
