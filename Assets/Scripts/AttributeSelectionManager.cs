@@ -75,7 +75,8 @@ public class AttributeSelectionManager : MonoBehaviour
     }
 
     public void UpdateAttributeSelectUI()
-    { 
+    {
+        // set the stat value (number) on screen initially
         strValueTxt.text = (strValue + strBonus).ToString();
         dexValueTxt.text = (dexValue + dexBonus).ToString();
         faiValueTxt.text = (faiValue + faiBonus).ToString();
@@ -84,16 +85,37 @@ public class AttributeSelectionManager : MonoBehaviour
         intValueTxt.text = (intValue + intBonus).ToString();
         lckValueTxt.text = (lckValue + lckBonus).ToString();
 
-        // if bonus is positive display it, if bonus is negative display it, otherwise nothing
-        strBonusTxt.text = strBonus != 0 ? (strBonus > 0 ? "(+" + strBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + strBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
-        dexBonusTxt.text = dexBonus != 0 ? (dexBonus > 0 ? "(+" + dexBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + dexBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
-        faiBonusTxt.text = faiBonus != 0 ? (faiBonus > 0 ? "(+" + faiBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + faiBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
-        endBonusTxt.text = endBonus != 0 ? (endBonus > 0 ? "(+" + endBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + endBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
-        chrBonusTxt.text = chrBonus != 0 ? (chrBonus > 0 ? "(+" + chrBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + chrBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
-        intBonusTxt.text = intBonus != 0 ? (intBonus > 0 ? "(+" + intBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + intBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
-        lckBonusTxt.text = lckBonus != 0 ? (lckBonus > 0 ? "(+" + lckBonus.ToString() + " from " + PlayerData.selectedRace + ")" : "(" + lckBonus.ToString() + " from " + PlayerData.selectedRace + ")") : "";
+        // define colours for positive and negative bonus text
+        Color positiveColour = Color.green;
+        Color negativeColour = Color.red;
+
+        // display bonus text and set colour of text based on the value of the bonus
+        SetBonusTextAndColour(strBonusTxt, strBonus, positiveColour, negativeColour);
+        SetBonusTextAndColour(dexBonusTxt, dexBonus, positiveColour, negativeColour);
+        SetBonusTextAndColour(faiBonusTxt, faiBonus, positiveColour, negativeColour);
+        SetBonusTextAndColour(endBonusTxt, endBonus, positiveColour, negativeColour);
+        SetBonusTextAndColour(chrBonusTxt, chrBonus, positiveColour, negativeColour);
+        SetBonusTextAndColour(intBonusTxt, intBonus, positiveColour, negativeColour);
+        SetBonusTextAndColour(lckBonusTxt, lckBonus, positiveColour, negativeColour);
     }
 
+    private void SetBonusTextAndColour(TextMeshProUGUI bonusText, int bonusValue, Color positiveColour, Color negativeColour)
+    {
+        if (bonusValue > 0)
+        {
+            bonusText.text = "(+" + bonusValue.ToString() + " from " + PlayerData.selectedRace + ")";
+            bonusText.color = positiveColour;
+        }
+        else if (bonusValue < 0)
+        {
+            bonusText.text = "(" + bonusValue.ToString() + " from " + PlayerData.selectedRace + ")";
+            bonusText.color = negativeColour;
+        }
+        else
+        {
+            bonusText.text = "";
+        }
+    }
     public void onRaceSelectButton()
     {
         raceSelectPanel.SetActive(true);
