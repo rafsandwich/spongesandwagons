@@ -16,6 +16,9 @@ public class RaceSelectionManager : MonoBehaviour
     public GameObject aldrPanel;
     public GameObject veldPanel;
 
+    public GameObject attributeSelectPanel;
+    public GameObject raceSelectPanel;
+
     void Start()
     {
         advanceButton.interactable = false;
@@ -60,9 +63,12 @@ public class RaceSelectionManager : MonoBehaviour
         }
     }
 
-    public void OnAdvanceButton()
+    public void OnAttributePanelButton()
     {
-        SceneManager.LoadScene("AttributeDistribution");
+        //SceneManager.LoadScene("AttributeDistribution");
+
+        attributeSelectPanel.SetActive(true);
+        raceSelectPanel.SetActive(false);
     }
 
     private void ResetRaceSelection()

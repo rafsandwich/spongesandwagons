@@ -2897,13 +2897,14 @@ GameObject:
   - component: {fileID: 569219153}
   - component: {fileID: 569219155}
   - component: {fileID: 569219154}
+  - component: {fileID: 569219156}
   m_Layer: 5
   m_Name: AttributeSelectBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &569219153
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2971,6 +2972,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569219152}
   m_CullTransparentMesh: 1
+--- !u!114 &569219156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569219152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ccabbb097cad4499ad400190711499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remainingPointsText: {fileID: 1777609429}
+  strValueTxt: {fileID: 1656012476}
+  dexValueTxt: {fileID: 1831134470}
+  faiValueTxt: {fileID: 1066308479}
+  endValueTxt: {fileID: 616242530}
+  chrValueTxt: {fileID: 1157678038}
+  intValueTxt: {fileID: 540267864}
+  lckValueTxt: {fileID: 1437183728}
+  strBonusTxt: {fileID: 660108056}
+  dexBonusTxt: {fileID: 320421434}
+  faiBonusTxt: {fileID: 556291073}
+  endBonusTxt: {fileID: 380141133}
+  chrBonusTxt: {fileID: 1564825409}
+  intBonusTxt: {fileID: 442279714}
+  lckBonusTxt: {fileID: 1488386802}
+  strAdd: {fileID: 1818647867}
+  strDec: {fileID: 583146008}
+  dexAdd: {fileID: 1100796731}
+  dexDec: {fileID: 1554359308}
+  faiAdd: {fileID: 859201735}
+  faiDec: {fileID: 437607286}
+  endAdd: {fileID: 1887263727}
+  endDec: {fileID: 1152088893}
+  chrAdd: {fileID: 1747860597}
+  chrDec: {fileID: 697507126}
+  intAdd: {fileID: 225705617}
+  intDec: {fileID: 2050746582}
+  lckAdd: {fileID: 968128272}
+  lckDec: {fileID: 1696373957}
+  raceSelectPanel: {fileID: 1704695815}
+  attributeSelectPanel: {fileID: 569219152}
+  confirmationPanel: {fileID: 0}
 --- !u!1 &576539518
 GameObject:
   m_ObjectHideFlags: 0
@@ -7980,7 +8025,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1379436220}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 569219156}
+        m_TargetAssemblyTypeName: AttributeSelectionManager, Assembly-CSharp
+        m_MethodName: onRaceSelectButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1379436220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9736,7 +9793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1704695816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9818,6 +9875,8 @@ MonoBehaviour:
   humanPanel: {fileID: 989240993}
   aldrPanel: {fileID: 293602359}
   veldPanel: {fileID: 2020747562}
+  attributeSelectPanel: {fileID: 569219152}
+  raceSelectPanel: {fileID: 1704695815}
 --- !u!1 &1747860595
 GameObject:
   m_ObjectHideFlags: 0
@@ -11264,7 +11323,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2135786803}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1704695819}
+        m_TargetAssemblyTypeName: RaceSelectionManager, Assembly-CSharp
+        m_MethodName: OnAttributePanelButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2135786803
 MonoBehaviour:
   m_ObjectHideFlags: 0
