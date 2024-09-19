@@ -182,6 +182,10 @@ public class AttributeSelectionManager : MonoBehaviour
             }
 
             UpdateAttributeSelectUI();
+
+            // STR
+            strAdd.interactable = (strValue < 15 && remainingPoints > 0); // max base limit is 15 and remaining points must be greater than 0
+            strDec.interactable = (strValue > 5); // min base limit is 5
         }
     }
 
@@ -242,6 +246,47 @@ public class AttributeSelectionManager : MonoBehaviour
         }
 
         UpdateAttributeSelectUI();
+
+        // STR
+        strAdd.interactable = (strValue < 15 && remainingPoints > 0); // max base limit is 15 and remaining points must be greater than 0
+        strDec.interactable = (strValue > 5); // min base limit is 5
+    }
+
+    public void UpdateStatButtonInteractatability()
+    { 
+        // to do
+    }
+
+    // reset stats to default
+    public void OnResetToDefault()
+    { 
+        remainingPoints = 20;
+
+        strValue = 5;
+        dexValue = 5;
+        faiValue = 5;
+        endValue = 5;
+        chrValue = 5;
+        intValue = 5;
+        lckValue = 5;
+
+        //strDec.interactable = false;
+        //dexDec.interactable = false;
+        //faiDec.interactable = false;
+        //endDec.interactable = false;
+        //chrDec.interactable = false;
+        //intDec.interactable = false;
+        //lckDec.interactable = false;
+
+        InitialiseRaceBonus();
+
+        UpdateStatValue();
+
+        // STR
+        strAdd.interactable = (strValue < 15 && remainingPoints > 0); // max base limit is 15 and remaining points must be greater than 0
+        strDec.interactable = (strValue > 5); // min base limit is 5
+
+        remainingPointsText.text = "Total Stat Points remaining: " + remainingPoints.ToString(); // repeated code, but necessary atm
     }
 
     public void onRaceSelectButton()
