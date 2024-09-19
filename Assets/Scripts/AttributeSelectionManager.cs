@@ -305,7 +305,12 @@ public class AttributeSelectionManager : MonoBehaviour
     {
         raceSelectPanel.SetActive(true);
         attributeSelectPanel.SetActive(false);
-
+        confirmationPanel.SetActive(false);
     }
 
+    public void onConfirmPanelButton()
+    {
+        confirmationPanel.SetActive(true);
+        attributeSelectPanel.SetActive(false);
+    }
 }

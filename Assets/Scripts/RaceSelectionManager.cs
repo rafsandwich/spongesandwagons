@@ -18,6 +18,7 @@ public class RaceSelectionManager : MonoBehaviour
 
     public GameObject attributeSelectPanel;
     public GameObject raceSelectPanel;
+    public GameObject confirmationPanel;
 
     public AttributeSelectionManager attributeSelectionManager;
 
@@ -72,6 +73,7 @@ public class RaceSelectionManager : MonoBehaviour
 
         attributeSelectPanel.SetActive(true);
         raceSelectPanel.SetActive(false);
+        confirmationPanel.SetActive(false);
 
         attributeSelectionManager.InitialiseRaceBonus();
         attributeSelectionManager.UpdateAttributeSelectUI();
