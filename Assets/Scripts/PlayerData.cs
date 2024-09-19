@@ -7,5 +7,11 @@ public static class PlayerData
     public static string selectedRace;
     public static int[] attributes = new int[7]; //strength, dex, end, fai, chr, int, lck
 
+    // store attributes in array or not?
+
+    // store name
+    // store money
+    // inventory?
+
 }
 

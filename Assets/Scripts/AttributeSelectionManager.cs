@@ -11,7 +11,7 @@ public class AttributeSelectionManager : MonoBehaviour
 
 
     public TextMeshProUGUI remainingPointsText;
-    private int remainingStatPoints = 20;
+    private int remainingPoints = 20;
 
     public TextMeshProUGUI strValueTxt, dexValueTxt, faiValueTxt, endValueTxt, chrValueTxt, intValueTxt, lckValueTxt;
     public TextMeshProUGUI strBonusTxt, dexBonusTxt, faiBonusTxt, endBonusTxt, chrBonusTxt, intBonusTxt, lckBonusTxt;
@@ -73,8 +73,7 @@ public class AttributeSelectionManager : MonoBehaviour
                 break;
         }
     }
-
-    public void UpdateAttributeSelectUI()
+    public void UpdateStatValue()
     {
         // set the stat value (number) on screen initially
         strValueTxt.text = (strValue + strBonus).ToString();
@@ -84,10 +83,15 @@ public class AttributeSelectionManager : MonoBehaviour
         chrValueTxt.text = (chrValue + chrBonus).ToString();
         intValueTxt.text = (intValue + intBonus).ToString();
         lckValueTxt.text = (lckValue + lckBonus).ToString();
+    }
+    public void UpdateAttributeSelectUI()
+    {
+        UpdateStatValue();
 
         // define colours for positive and negative bonus text
-        Color positiveColour = Color.green;
-        Color negativeColour = Color.red;
+        // to use hex, convert to rgb e.g. (45, 200, 110) -> new Color (45f/255f, 200f/255f, 110/255f, 1f)
+        Color positiveColour = new Color(0.18f, 0.8f, 0.44f, 1f);
+        Color negativeColour = new Color(0.8f, 0.18f, 0.18f, 1f);
 
         // display bonus text and set colour of text based on the value of the bonus
         SetBonusTextAndColour(strBonusTxt, strBonus, positiveColour, negativeColour);
@@ -97,6 +101,8 @@ public class AttributeSelectionManager : MonoBehaviour
         SetBonusTextAndColour(chrBonusTxt, chrBonus, positiveColour, negativeColour);
         SetBonusTextAndColour(intBonusTxt, intBonus, positiveColour, negativeColour);
         SetBonusTextAndColour(lckBonusTxt, lckBonus, positiveColour, negativeColour);
+
+        remainingPointsText.text = "Total Stat Points remaining: " + remainingPoints.ToString();
     }
 
     private void SetBonusTextAndColour(TextMeshProUGUI bonusText, int bonusValue, Color positiveColour, Color negativeColour)
@@ -116,6 +122,128 @@ public class AttributeSelectionManager : MonoBehaviour
             bonusText.text = "";
         }
     }
+
+    // increase stats based on button press
+    public void OnIncreaseStat(string stat)
+    {
+        if (remainingPoints > 0)
+        {
+            switch (stat)
+            {
+                case "STR":
+                    if (strValue < 15)
+                    {
+                        strValue++;
+                        remainingPoints--;
+                    }
+                    break;
+                case "DEX":
+                    if (dexValue < 15)
+                    {
+                        dexValue++;
+                        remainingPoints--;
+                    }
+                    break;
+                case "FAI":
+                    if (faiValue < 15)
+                    {
+                        faiValue++;
+                        remainingPoints--;
+                    }
+                    break;
+                case "END":
+                    if (endValue < 15)
+                    {
+                        endValue++;
+                        remainingPoints--;
+                    }
+                    break;
+                case "CHR":
+                    if (chrValue < 15)
+                    {
+                        chrValue++;
+                        remainingPoints--;
+                    }
+                    break;
+                case "INT":
+                    if (intValue < 15)
+                    {
+                        intValue++;
+                        remainingPoints--;
+                    }
+                    break;
+                case "LCK":
+                    if (lckValue < 15)
+                    {
+                        lckValue++;
+                        remainingPoints--;
+                    }
+                    break;
+            }
+
+            UpdateAttributeSelectUI();
+        }
+    }
+
+    // decrease stats based on button press
+    public void OnDecreaseStat(string stat)
+    {
+        switch (stat)
+        {
+            case "STR":
+                if (strValue > 5) 
+                {
+                    strValue--;
+                    remainingPoints++;
+                }
+                break;
+            case "DEX":
+                if (dexValue > 5)
+                {
+                    dexValue--;
+                    remainingPoints++;
+                }
+                break;
+            case "FAI":
+                if (faiValue > 5)
+                {
+                    faiValue--;
+                    remainingPoints++;
+                }
+                break;
+            case "END":
+                if (endValue > 5)
+                {
+                    endValue--;
+                    remainingPoints++;
+                }
+                break;
+            case "CHR":
+                if (chrValue > 5)
+                {
+                    chrValue--;
+                    remainingPoints++;
+                }
+                break;
+            case "INT":
+                if (intValue > 5)
+                {
+                    intValue--;
+                    remainingPoints++;
+                }
+                break;
+            case "LCK":
+                if (lckValue > 5)
+                {
+                    lckValue--;
+                    remainingPoints++;
+                }
+                break;
+        }
+
+        UpdateAttributeSelectUI();
+    }
+
     public void onRaceSelectButton()
     {
         raceSelectPanel.SetActive(true);
