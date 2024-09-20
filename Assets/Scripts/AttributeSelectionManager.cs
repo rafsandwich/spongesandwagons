@@ -25,6 +25,8 @@ public class AttributeSelectionManager : MonoBehaviour
     public GameObject attributeSelectPanel;
     public GameObject confirmationPanel;
 
+    public ConfirmationPanelManager confirmationPanelManager;
+
 
     void Start()
     {
@@ -312,5 +314,18 @@ public class AttributeSelectionManager : MonoBehaviour
     {
         confirmationPanel.SetActive(true);
         attributeSelectPanel.SetActive(false);
+
+        SavePlayerStats();
+        confirmationPanelManager.InitialiseConfirmationPanel();
+    }
+    public void SavePlayerStats()
+    {
+        PlayerData.strStat = strValue + strBonus;
+        PlayerData.dexStat = dexValue + dexBonus;
+        PlayerData.faiStat = faiValue + faiBonus;
+        PlayerData.endStat = endValue + endBonus;
+        PlayerData.chrStat = chrValue + chrBonus;
+        PlayerData.intStat = intValue + intBonus;
+        PlayerData.lckStat = lckValue + lckBonus;
     }
 }

@@ -5,12 +5,10 @@ using UnityEngine;
 public static class PlayerData
 {
     public static string selectedRace;
-    public static int[] attributes = new int[7]; //strength, dex, end, fai, chr, int, lck
+    public static int strStat, dexStat, faiStat, endStat, chrStat, intStat, lckStat;
+    public static string playerName;
+    public static int gold = 0;
 
-    // store attributes in array or not?
-
-    // store name
-    // store money
     // inventory?
 
 }
