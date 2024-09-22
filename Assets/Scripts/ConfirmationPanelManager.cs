@@ -10,6 +10,9 @@ public class ConfirmationPanelManager : MonoBehaviour
     public TextMeshProUGUI playerNameText;
     public TextMeshProUGUI raceConfirmText;
     public Image raceImage;
+    public TextMeshProUGUI raceDescText;
+
+    public RaceSelectionManager raceSelectionManager;
 
     public Sprite humanSprite, aldrSprite, veldSprite;
 
@@ -37,12 +40,15 @@ public class ConfirmationPanelManager : MonoBehaviour
         {
             case "Human":
                 raceImage.sprite = humanSprite;
+                raceDescText.text = raceSelectionManager.GetRaceDescription(PlayerData.selectedRace);
                 break;
             case "Aldr":
                 raceImage.sprite = aldrSprite;
+                raceDescText.text = raceSelectionManager.GetRaceDescription(PlayerData.selectedRace);
                 break;
             case "Veld":
                 raceImage.sprite = veldSprite;
+                raceDescText.text = raceSelectionManager.GetRaceDescription(PlayerData.selectedRace);
                 break;
         }
 
